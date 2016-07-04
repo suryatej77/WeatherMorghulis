@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>WeatherMorghulis</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+	    <link href="static/bootstrap.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-select.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<div class="container">
+    	<div class="header">
+			<nav>
+				<ul class="nav nav-pills pull-right">
+					<li role="presentation" ><a href="/homepage">Home</a></li>
+					<li role="presentation" ><a href="/logout">Logout</a></li>
+					<li role="presentation" ><a href="/register">Register</a></li>
+				</ul>
+			</nav>
+	        <h3 class="text-muted">Weather Morghulis</h3>
+		</div>
+		<br>
+		{% if session_user_name %}
+			<p>Logged in as {{ session_user_name }}</p>
+		{% endif %}
+			<div class="form-group">
+				<form action="/addCity" method="GET">
+					<select class="form-control" name="UserCity">
+						{% for city in citylist %}
+						<option value="{{ city }}">{{ city }}</option>
+						{% endfor %}
+					</select>
+					<br/>
+					<br/>
+					<input class="btn btn-default" type="submit" onclick='this.form.action="/removeCity";' VALUE="Remove City">
+					<input class="btn btn-default" type="submit" onclick='this.form.action="/addCity";' VALUE="Add City">
+					<input type="hidden" name="submitted" value="TRUE" />
+				</form>		
+			</div>
+        <p><a href="/checkWeather" class="btn btn-default" role="button">Check Weather</a></p>
+		</div>
+	</body>
+</html>

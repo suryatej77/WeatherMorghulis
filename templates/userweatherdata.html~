@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block nav %}
+	<ul class="nav navbar-nav navbar-right">
+		<li><a href="/homepage"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+		<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+		<li><a href="/register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+	</ul>
+{% endblock %}
+{% block content %}
+	<br/>
+	<div class="alert alert-success">
+		{% if session_user_name %}
+			<p>Logged in as {{ session_user_name }}</p>
+		{% endif %}
+	</div>
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h3 class="panel-title">Weather Data:</h3>
+		</div>
+		<div class="panel-body">
+		</div>
+		<ul>
+		{% for weather in weatherlist %}
+			<img src="{{ weather['icon'] }}" alt="Weather Icon" style="width:56px;height:56px;">
+			<li>Location : {{weather['Location']}}</li>
+			<li>Weather : {{weather['Weather']}}</li>
+			<li>Temperature : {{weather['Current_Temp']}}</li>
+			<li>Feels Like : {{weather['Feels_Like_Temp']}}</li>
+		{% endfor %}
+		</ul>
+	</div>
+{% endblock %}

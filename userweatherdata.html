@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>WeatherMorghulis</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+    	<div class="container">
+		<h1>Weather Data:</h1>
+		<ul>
+			<li>Location : {{weather['Location']}}</li>
+			<li><img src="{{ weather['icon'] }}" alt="Weather Icon" style="width:48px;height:48px;">Weather : {{weather['Weather']}}</li>
+			<li>Temperature : {{weather['Current_Temp']}}</li>
+			<li>Feels Like : {{weather['Feels_Like_Temp']}}</li>
+		</ul>
+		<p>Click <a href="/logout">here</a> to Logout.</p>		
+		</div>
+	</body>
+</html>

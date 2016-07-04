@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+	<ul class="nav navbar-nav navbar-right">
+		<li><a href="/homepage"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+		<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		<li class="active"><a href="/register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+	</ul>
+{% endblock %}
+{% block content %}
+	<p><h2>Enter desired UserName and Password to register:</h2></p>
+	<form class="form-signin" method="POST" action="/signUp">
+		<input type="name" name="UserName" class="form-control" placeholder="Name" required autofocus>
+	    <input type="password" placeholder="Password" class="form-control" name="Password" required autofocus>
+	    <input class="btn btn-default" type="submit" value="Register">
+	</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>WeatherMorghulis</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--
+	    <style>
+		    .input-append .btn.dropdown-toggle {
+    		float: none;
+			}
+	    </style>
+	 -->   
+	    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+	<div class="container">
+	<form action="#" method="get">
+	<input list="browsers" name="browser">
+		<datalist id="browsers">
+		<option value="Internet Explorer">
+		<option value="Firefox">
+		<option value="Chrome">
+		<option value="Opera">
+		<option value="Safari">
+		</datalist>
+	<input type="submit">
+	</form>
+	</div>
+	</body>
+</html>

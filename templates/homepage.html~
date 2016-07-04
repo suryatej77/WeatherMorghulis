@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block nav %}
+	<ul class="nav navbar-nav navbar-right">
+		<li class="active" ><a href="/homepage"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+		<li><a href="/login"><span class="glyphicon glyphicon-log-out"></span> Login</a></li>
+		<li><a href="/register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+	</ul>
+{% endblock %}
+{% block content %}
+	<br>
+	<div class="jumbotron">
+		<h1>Weather Morghulis</h1>
+		<p class="lead"></p>
+		
+		<p><a class="btn btn-lg btn-success" href="/register" role="button">Register Now</a></p>
+	</div>
+{% endblock %}

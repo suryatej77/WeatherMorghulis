@@ -1,0 +1,7 @@
+import requests
+
+def weatherdata(country,state):
+	r = requests.get("http://api.wunderground.com/api/39f7c55a8cddcff3/conditions/q/"+str(country)+"/"+str(city)+".json")
+	data = r.json()
+	
+

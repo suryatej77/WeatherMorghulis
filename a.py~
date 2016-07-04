@@ -1,0 +1,11 @@
+import requests
+
+r = requests.get("http://api.wunderground.com/api/39f7c55a8cddcff3/conditions/q/India/Mumbai.json")
+data = r.json()
+
+#print ("Location :",data['current_observation']['display_location']['full'])
+#print ("Weather :",data['current_observation']['weather'])
+#print ("Current Temperature :",data['current_observation']['temperature_string'])
+#print ("Feels like :",data['current_observation']['feelslike_string'])
+
+
