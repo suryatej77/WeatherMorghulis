@@ -1,6 +1,6 @@
 gunicorn
 Flask
 passlib
-MySQLdb
+MySQL-python
 requests
 re
