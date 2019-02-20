@@ -4,13 +4,13 @@ import MySQLdb
 import requests
 import re
 
-app=Flask(__name__)
-app.secret_key = 'Valar Morghulis'
+application=Flask(__name__)
+application.secret_key = 'Valar Morghulis'
 
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '2312onnf'
-app.config['MYSQL_DB'] = 'Users'
-app.config['MYSQL_HOST'] = 'localhost'
+application.config['MYSQL_USER'] = 'root'
+application.config['MYSQL_PASSWORD'] = '2312onnf'
+application.config['MYSQL_DB'] = 'Users'
+application.config['MYSQL_HOST'] = 'localhost'
 db=MySQLdb.connect(user="root",passwd="2312onnf",db="Users")
 
 c=db.cursor()
@@ -71,12 +71,12 @@ def weatherdb(cidlist):
 		db_weatherlist.append(weather.copy())
 	return db_weatherlist
 
-@app.route('/')
-@app.route('/homepage')
+@application.route('/')
+@application.route('/homepage')
 def homepage():
 	return render_template('homepage.html')
 
-@app.route('/removeCity',methods=['POST','GET'])
+@application.route('/removeCity', methods=['POST', 'GET'])
 def removeCity():
 	if 'username' in session:
 		username_session = escape(session['username'])
@@ -110,7 +110,7 @@ def removeCity():
 			flash('City not present in your favourites')
 			return render_template('userhome.html',session_user_name = username_session, citylist = citylist)
 
-@app.route('/addCity',methods=['POST','GET'])
+@application.route('/addCity', methods=['POST', 'GET'])
 def addCity():
 	if 'username' in session:
 		username_session = escape(session['username'])
@@ -138,29 +138,29 @@ def addCity():
 		db.commit()
 		return render_template('userhome.html',session_user_name=username_session,citylist = citylist)
 
-@app.route('/login')
+@application.route('/login')
 def login():
 	return render_template('loginpage.html')
 
-@app.route('/logout')
+@application.route('/logout')
 def logout():
 	session['logged_in'] = False
 	session.pop('username', None)
 	session.pop('uid', None)
 	return render_template('homepage.html')
 
-@app.route('/register')
+@application.route('/register')
 def register():
 	return render_template('registerpage.html')
 
-@app.route('/userHome')
+@application.route('/userHome')
 def userhome():
 	if 'username' in session:
 		username_session = escape(session['username'])
 		return render_template('userhome.html',session_user_name=username_session,citylist = citylist)
 	return render_template('login.html')
 
-@app.route('/checkWeather',methods=['POST','GET'])
+@application.route('/checkWeather', methods=['POST', 'GET'])
 def checkWeather():
 	if 'username' in session:
 		username_session = escape(session['username'])
@@ -188,7 +188,7 @@ def checkWeather():
 		
 		return render_template('userweatherdata.html',session_user_name = username_session,api_weatherlist = api_weatherlist, db_weatherlist = db_weatherlist)
 
-@app.route('/signUp',methods=['POST','GET'])
+@application.route('/signUp', methods=['POST', 'GET'])
 def signUp():
 	if request.method == 'POST':
 		username = request.form['UserName']
@@ -220,7 +220,7 @@ def signUp():
 	else:
 		return json.dumps({'html':'<span>Enter the required fields</span>'})
 
-@app.route("/Authenticate",methods=['POST'])
+@application.route("/Authenticate", methods=['POST'])
 def Authenticate():
 	username = request.form['UserName']
 	password = request.form['Password']
@@ -243,4 +243,4 @@ def Authenticate():
 			return json.dumps({'html':'<span>Wrong user id or Password.</span>'})
 
 if __name__=='__main__':
-	app.run(debug=True)
+	application.run()
