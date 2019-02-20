@@ -4,4 +4,3 @@ passlib
 ConfigParser
 MySQL-python
 requests
-re
