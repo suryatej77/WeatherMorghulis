@@ -1,6 +1,7 @@
 gunicorn
 Flask
 passlib
+ConfigParser
 MySQL-python
 requests
 re
